@@ -15,7 +15,7 @@ int depth(Node * root){
     int right = depth(root->right);
     ans = max(ans , left + right);
     return max(left, right)  + 1;
-}
+}    
 int diamterofBinaryTree(Node * root){
     ans = 0;
     depth(root);
