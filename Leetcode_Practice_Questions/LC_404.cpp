@@ -5,9 +5,6 @@
 #include<stack>
 #include<unordered_map>
 #include<unordered_set>
-#include<map>
-#include<set>
-#include<algorithm>
 using namespace std;
 struct Node{
     int data;
