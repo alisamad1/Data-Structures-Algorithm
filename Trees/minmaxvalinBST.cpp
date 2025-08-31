@@ -8,7 +8,6 @@ struct Node{
     Node * right;
     Node(int val) : data(val), left(nullptr),right(nullptr) {}
 };
-
 Node * minimumValue(Node * root){
     Node * temp = root;
     while(temp->left != NULL){
