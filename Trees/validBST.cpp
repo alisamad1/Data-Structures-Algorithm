@@ -15,7 +15,7 @@ bool isBSTValid(Node * root, long min , long max){
     if(root == NULL){
         return true;
     }
-    if(root->data <= min || root->data >= max){ // Changed from isBST to isBSTValid
+    if(root->data <= min || root->data >= max){ 
         return false;
     }
     return isBSTValid(root->left, min , root->data) && isBSTValid(root->right, root->data, max);
