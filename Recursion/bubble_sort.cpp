@@ -12,8 +12,14 @@ void sortarray(int *arr,int n){
     sortarray(arr, n - 1);
 }
 int main(){
-    int arr[] = {1,2,4,5,9};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    cout << "Enter the size of the array: " << endl;
+    cin >> n;
+    int arr[n];
+    cout << "Enter the elements of the array: " << endl;
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+    }
     sortarray(arr, n);
     for(int i = 0 ; i < n; i++){
         cout << arr[i] << " ";
