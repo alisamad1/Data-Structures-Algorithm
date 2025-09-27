@@ -1,28 +1,33 @@
-// we wil be writing the code for linear search using recursion
 #include<iostream>
+#include<vector>
 using namespace std;
-bool LinearSearch(int arr[],int n, int key){
-    if(n == 0){
-        return false;
+int linearsearch(vector<int>& nums, int index, int target){
+    if(index >= nums.size()){
+        return 0;
     }
-    if(arr[0] == key){
-        return true;
+    if(nums[index] == target){
+        return 1;
     }
-    else{
-        bool remainingpart = LinearSearch(arr + 1, n - 1, key);
-        return remainingpart;
-    }
+    return linearsearch(nums, index + 1, target);
 }
 int main(){
-    int  arr[] = {1,2,3,4,5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int key = 2;
-    bool ans = LinearSearch(arr, n , key);
-    if(ans){
-        cout << "Element is present in the array" << endl;
+    int n;
+    cout << "Enter the size of the array: " ;
+    cin >> n;
+    vector<int> nums(n);
+    cout << "Enter the elements of the array: " ;
+    for(int i = 0; i < n; i++){
+        cin >> nums[i];
     }
+    int target;
+    cout << "Enter the target element: ";
+    cin >> target;
+    int result = linearsearch(nums, 0, target);
+    if(result == 1){
+        cout << "Element found in the array." << endl;
+    } 
     else{
-        cout  << "Element is not present in the array " << endl;
+        cout << "Element not found in the array." << endl;
     }
     return 0;
 }
