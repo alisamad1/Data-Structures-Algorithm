@@ -1,26 +1,32 @@
+// we will be writing the recursive code for to check if the array is sorted or not
 #include<iostream>
-using namespace std;
-bool isSorted(int *arr, int n){
+#include<vector>
+#include<string>
+using namespace  std;
+bool isSorted(vector<int>& arr, int n){
+    // base case
     if(n == 0 || n == 1){
         return true;
     }
-    if(arr[0] > arr[1]){
+    if(arr[n-1] < arr[n-2]){
         return false;
     }
-    else{
-        bool remainingpart = isSorted(arr+1, n - 1);
-        return remainingpart;
-    }
+    return isSorted(arr, n-1);
 }
 int main(){
-    int arr[] = {1,2,3,4,5};
-    int n = 5;
-    bool ans = isSorted(arr, n);
-    if(ans) {
-        cout << "Array is Sorted " << endl;
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter the elements of the array: ";
+    for(int i=0; i<n; i++){
+        cin >> arr[i];
+    }
+    if(isSorted(arr,n)){
+        cout << "The array is Sorted. " << endl;
     }
     else{
-        cout << "Array is not sorted " << endl;
+        cout << "The  array is not Sorted. " << endl;
     }
     return 0;
 }
